@@ -1,0 +1,30 @@
+def day_count():
+    month = {1:31,2:28,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31}
+    begin_or,end_or = eval(input('please enter the begin and the end'))
+    begin = 100*begin_or
+    end = 100*end_or
+    begin_month = int(begin//100)
+    begin_date = int(begin - begin_month*100)
+    end_month = int(end//100)
+    end_date = int(end - end_month*100)
+    while begin_month > 12 or end_month > 12 or begin_date > month.get(begin_month) or end_date > month.get(end_month):
+        print('please enter the right date')
+        begin_or,end_or = eval(input('please enter the begin and the end'))
+        begin = being_or * 100
+        end = end_or * 100
+        begin_month = int(begin//100)
+        begin_date = int(begin - begin_month*100)
+        end_month = int(end//100)
+        end_date = int(end - end_month*100)
+    print('是否为',begin_month,'月',begin_date,'日',end_month,'月',end_date,'日?')
+    check = str(input("如果确认将继续"))
+    suma = month.get(begin_month)-begin_date
+    i = 1
+    sumb = 0
+    for i in range (begin_month+1,end_month):
+        sumb += month.get(i)
+        i += 1
+    summ = suma + sumb
+    print(suma, sumb, summ)
+
+day_count()
